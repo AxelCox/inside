@@ -20,7 +20,11 @@ This application is deployed in Amazon EKS Cluster using build and deployment Pi
 
 Do not forget!!!
 
-The GUI of Jenkins Server running: http://publicip_of_EC2:8080
+The GUI of Jenkins Server running: 
+```
+http://publicip_of_EC2:8080
+```
+
 
 Jenkinsfile uses this repository during running CD Pipeline. Main, Dev and Feature branches are created to simulate a real project. Main branch is created for the production environment, dev branch is created for the development environment and feature branches are used to develop new features for the upcoming or a distant future release. The application is regarded as final product and it is deployed using main branch.
 
