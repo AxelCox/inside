@@ -36,7 +36,7 @@ pipeline {
             steps {
                 echo 'Building App Dev Image'
                 sh "cd status-ok/images/"
-                sh "docker build --force-rm -t ${IMAGE_TAG_STATUS_OK}" "${WORKSPACE}/spring-petclinic-admin-server"
+                sh "docker build --force-rm -t ${IMAGE_TAG_STATUS_OK}" "${WORKSPACE}/status-ok/images"
                 sh 'docker image ls'
             }
         }
