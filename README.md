@@ -1,4 +1,4 @@
-# A Simple Python Flask Application built and deployed with Kubernetes
+# A Simple Python Flask Application built and deployed to Kubernetes
 
 ## Code Overview and Understanding the application
 
