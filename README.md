@@ -16,7 +16,11 @@ python3 app.py
 
 ## Starting services with AWS Cloud
 
-This application is deployed in Amazon EKS Cluster using build and deployment Pipeline with Jenkinsfile. In order to deploy the application, you need to run Jenkins Server using Jenkins-Server.tf file in the repository. Clone this repository to your local machine, and use Jenkins-Server.tf file to launch Jenkins Server on AWS Cloud.
+This application is deployed in Amazon EKS Cluster using build and deployment Pipeline with Jenkinsfile. In order to deploy the application, you need to run Jenkins Server using .tf files in Jenkins-Server folder. Clone this repository to your local machine, and use tf files in Jenkins-Server folder to launch Jenkins Server on AWS Cloud. Connect to the Jenkins Server (Amazon Linux 2) using ssh, and use prepare your Pipeline using Jenkinsfile.
+
+Do not forget!!!
+
+The GUI of Jenkins Server running: http://<Public IP of EC2>:8080
 
 Jenkinsfile uses this repository during running CD Pipeline. Main, Dev and Feature branches are created to simulate a real project. Main branch is created for the production environment, dev branch is created for the development environment and feature branches are used to develop new features for the upcoming or a distant future release. The application is regarded as final product and it is deployed using main branch.
 
