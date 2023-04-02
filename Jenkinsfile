@@ -62,6 +62,7 @@ pipeline {
             steps {
                 echo 'Waiting EKS Cluster for Dev Environment'
                 sh "aws eks wait cluster-active --name insider-cluster"
+                sh "aws eks wait nodegroup-active --cluster-name insider-cluster --nodegroup-name ng-1"
             }
         }
 
