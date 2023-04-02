@@ -108,6 +108,10 @@ pipeline {
                     string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Clean up process')
                 }
             }
+            steps {
+                echo "Hello, ${PERSON}, nice to meet you."
+            }
+            
             echo 'Deleting all local images'
             sh 'docker image prune -af'
             echo 'Delete the Image Repository on ECR'
