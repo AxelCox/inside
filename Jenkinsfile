@@ -48,23 +48,23 @@ pipeline {
             }
         }
 
-        stage('Create Cluster with EKS') {
-            steps {
-                echo 'Creating EKS Cluster for Dev Environment'
-                sh """
-                    cd infrastructure
-                    eksctl create cluster -f cluster.yaml
-                """
-            }
-        }
+        // stage('Create Cluster with EKS') {
+        //     steps {
+        //         echo 'Creating EKS Cluster for Dev Environment'
+        //         sh """
+        //             cd infrastructure
+        //             eksctl create cluster -f cluster.yaml
+        //         """
+        //     }
+        // }
 
-        stage('Wait Creation of EKS Cluster') {
-            steps {
-                echo 'Waiting EKS Cluster for Dev Environment'
-                sh "aws eks wait cluster-active --name insider-cluster"
-                sh "aws eks wait nodegroup-active --cluster-name insider-cluster --nodegroup-name ng-1"
-            }
-        }
+        // stage('Wait Creation of EKS Cluster') {
+        //     steps {
+        //         echo 'Waiting EKS Cluster for Dev Environment'
+        //         sh "aws eks wait cluster-active --name insider-cluster"
+        //         sh "aws eks wait nodegroup-active --cluster-name insider-cluster --nodegroup-name ng-1"
+        //     }
+        // }
 
         stage('Deploy App on Kubernetes cluster'){
             steps {
@@ -74,24 +74,24 @@ pipeline {
         }     
     }
 
-    post {
-        cleanup {
-            echo 'Clean up'
-            sleep time: 60, unit: 'SECONDS'
-            echo 'Deleting all local images'
-            sh 'docker image prune -af'
-            echo 'Delete the Image Repository on ECR'
-            sh """
-                aws ecr delete-repository \
-                  --repository-name ${APP_REPO_NAME} \
-                  --region ${AWS_REGION}\
-                  --force
-                """
-            echo 'Tear down the Kubernetes Cluster'
-            sh """
-                cd infrastructure
-                eksctl delete cluster insider-cluster --region us-east-1
-                """
-        }
-    }
+    // post {
+    //     cleanup {
+    //         echo 'Clean up'
+    //         sleep time: 1, unit: 'DAYS'
+    //         echo 'Deleting all local images'
+    //         sh 'docker image prune -af'
+    //         echo 'Delete the Image Repository on ECR'
+    //         sh """
+    //             aws ecr delete-repository \
+    //               --repository-name ${APP_REPO_NAME} \
+    //               --region ${AWS_REGION}\
+    //               --force
+    //             """
+    //         echo 'Tear down the Kubernetes Cluster'
+    //         sh """
+    //             cd infrastructure
+    //             eksctl delete cluster insider-cluster --region us-east-1
+    //             """
+    //     }
+    // }
 }
