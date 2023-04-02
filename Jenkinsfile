@@ -104,6 +104,9 @@ pipeline {
                 message "Do you want to clean up?"
                 ok "CLEAN UP"
                 submitter "admin"
+                parameters {
+                    string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Clean up process')
+                }
             }
             echo 'Deleting all local images'
             sh 'docker image prune -af'
