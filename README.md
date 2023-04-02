@@ -15,7 +15,7 @@ This application is deployed in Amazon EKS Cluster using build and deployment Pi
 
 Jenkinsfile uses this repository during running CD Pipeline. Main, Dev and Feature branches are created to simulate a real project. Main branch is created for the production environment, dev branch is created for the development environment and feature branches are used to develop new features for the upcoming or a distant future release. The application is regarded as final product and it is deployed using main branch.
 
-Installations in Jenkins Server:
+### Installations in Jenkins Server:
 
 * Git
 * Jenkins
@@ -28,13 +28,15 @@ Installations in Jenkins Server:
 * Amazon EKS vended kubectl binary to manage Cluster
 
 
-Dockerfile
+### Dockerfile
+
 This file contains the instructions for building a Docker image that can run the Flask application. It starts with an official Python runtime image, installs the required dependencies with requirements.txt. The container expose port is 3333.
 
-Manifest File
+### Manifest File
+
 This file includes both deployment and service configuration in this single yaml file for deploying the application in AWS EKS Cluster. The application will run in a container using deployment and service object will create an ALB endpoint.
 
-Jenkinsfile
+### Jenkinsfile
 
 This file runs the CD pipeline to build and deploy the application in EKS Cluster. With this file, 
 
