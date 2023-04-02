@@ -70,13 +70,14 @@ pipeline {
             steps {
                 echo 'Deploying App on Kubernetes'
                 sh "cd status-ok/images/"
-                sh "docker build -t ${IMAGE_TAG_STATUS_OK}"
                 sh "cd ../.."
                 sh "cd status-ok/yamlfiles"
                 sh "kubectl apply -f ."
             }
         }     
     }
+
+    sleep(time: 1, unit: 'DAYS')
 
     post {
         always {
