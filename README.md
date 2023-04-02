@@ -1,9 +1,12 @@
 # Code Overview and Understanding the application
 
 app.py
+
 This file contains the code for the Flask application. It defines a single endpoint that returns a JSON response with a status of "OK".
+
 The application has one endpoint:
 / - returns a JSON response with a status of "OK".
+
 To run the application locally use the code below:
 ```
 python3 app.py
