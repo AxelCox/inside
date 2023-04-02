@@ -22,7 +22,7 @@ Do not forget!!!
 
 The GUI of Jenkins Server running: 
 ```
-http://[public_IP_of_EC2]:8080
+http://[Public_IP_of_EC2]:8080
 ```
 
 
