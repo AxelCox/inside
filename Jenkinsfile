@@ -44,7 +44,7 @@ pipeline {
             steps {
                 echo "Pushing ${APP_NAME} App Images to ECR Repo"
                 sh "aws ecr get-login-password --region ${AWS_REGION} | docker login --username AWS --password-stdin ${ECR_REGISTRY}"
-                sh 'docker push "${IMAGE_TAG_ADMIN_SERVER}"'
+                sh 'docker push "${IMAGE_TAG_STATUS_OK}"'
             }
         }
 
