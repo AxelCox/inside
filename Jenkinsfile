@@ -77,10 +77,8 @@ pipeline {
         }     
     }
 
-    sleep(time: 1, unit: 'DAYS')
-
     post {
-        always {
+        cleanup {
             echo 'Deleting all local images'
             sh 'docker image prune -af'
             echo 'Delete the Image Repository on ECR'
@@ -96,5 +94,6 @@ pipeline {
                 eksctl delete cluster insider-cluster --region us-east-1
                 """
         }
+        
     }
 }
