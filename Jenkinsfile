@@ -69,10 +69,7 @@ pipeline {
         stage('Deploy App on Kubernetes cluster'){
             steps {
                 echo 'Deploying App on Kubernetes'
-                sh "cd status-ok/images/"
-                sh "cd ../.."
-                sh "cd status-ok/yamlfiles"
-                sh "kubectl apply -f ."
+                sh "kubectl apply -f status-ok/yamlfiles/frontend-deploy-svc-result-server.yaml"
             }
         }     
     }
