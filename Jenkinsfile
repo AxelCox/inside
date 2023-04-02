@@ -69,15 +69,13 @@ pipeline {
         stage('Deploy App on Kubernetes cluster'){
             steps {
                 echo 'Deploying App on Kubernetes'
-                sh "kubectl apply -f status-ok/yamlfiles/frontend-deploy-svc-result-server.yaml"
+                sh "kubectl apply -f ${WORKSPACE}/status-ok/yamlfiles/frontend-deploy-svc-result-server.yaml"
             }
         }     
     }
 
     // post {
-    //     cleanup {
-    //         echo 'Clean up'
-    //         sleep time: 1, unit: 'DAYS'
+    //     failure {
     //         echo 'Deleting all local images'
     //         sh 'docker image prune -af'
     //         echo 'Delete the Image Repository on ECR'
