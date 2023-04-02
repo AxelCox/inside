@@ -73,6 +73,13 @@ pipeline {
             }
         }     
     }
+    
+    post {
+        success {
+            echo 'ALB Endpoint'
+            sh "kubectl get svc status-ok-svc -o jsonpath='{.status.loadBalancer.ingress[0].hostname}'"
+        }
+    }
 
     // post {
     //     failure {
