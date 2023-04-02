@@ -92,8 +92,8 @@ pipeline {
                 """
             echo 'Tear down the Kubernetes Cluster'
             sh """
-                    cd infrastructure
-                    eksctl delete cluster insider-cluster --region us-east-1
+                cd infrastructure
+                eksctl delete cluster insider-cluster --region us-east-1
                 """
         }
     }
