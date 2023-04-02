@@ -73,15 +73,13 @@ pipeline {
             }
         }     
     }
-    
+
     post {
         success {
             echo 'ALB Endpoint'
             sh "kubectl get svc status-ok-svc -o jsonpath='{.status.loadBalancer.ingress[0].hostname}'"
         }
-    }
 
-    post {
         failure {
             echo 'Deleting all local images'
             sh 'docker image prune -af'
@@ -98,5 +96,5 @@ pipeline {
                 eksctl delete cluster insider-cluster --region us-east-1
                 """
         }
-    }
+    }   
 }
