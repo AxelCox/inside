@@ -1,4 +1,6 @@
-# Code Overview and Understanding the application
+# A Simple Python Flask Application built and deployed with Kubernetes
+
+## Code Overview and Understanding the application
 
 app.py
 
