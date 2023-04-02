@@ -97,21 +97,12 @@ pipeline {
                 eksctl delete cluster insider-cluster --region us-east-1
                 """
         }
-
-
+     
         always {
-            input {
-                message "Do you want to clean up?"
-                ok "CLEAN UP"
-                submitter "admin"
-                parameters {
-                    string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Clean up process')
-                }
-            }
             steps {
-                echo "Hello, ${PERSON}, nice to meet you."
+                input(message: 'Hello World!', ok: 'Submit')
             }
-            
+
             echo 'Deleting all local images'
             sh 'docker image prune -af'
             echo 'Delete the Image Repository on ECR'
